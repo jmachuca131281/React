@@ -20,6 +20,18 @@ class Hello extends Component {
   }
 }
 
+// Default props
+
+class Title extends Component {
+  render() {
+    return <h1>{this.props.text}</h1>
+  }
+}
+
+Title.defaultProps = {
+  text: 'Titulo por defecto'
+}
+
 class Text extends Component {
   render() {
     const {
@@ -45,10 +57,36 @@ class Text extends Component {
         <p>{mappedNumbers.join(', ')}</p>
         {/* <p>{mappedNumbers2.join(', ')}</p>  */}
         {/* <p>{this.props.objetoWithInfo.key2}</p> */}
+        <p>{Title}</p>
       </div>
     )
   }
 }
+
+// State
+
+class Contandor extends Component {
+  constructor () {
+    super()
+    this.state = {contador: 1}
+    setInterval(() => {  // Actualizar el estado mediante setState()
+      this.setState({contador: this.state.contador + 1 })
+    }, 1000)
+  }
+
+  render () {
+    // return <span>{this.state.contador}</span>
+    return <ContandorNumero numero={this.state.contador} />
+  }
+}
+
+class ContadorNumero extends Component{
+  render() {
+    console.log('ContadorNumero render()');
+    return <spam>{this.props.numero}</spam>
+  }
+}
+
 
 function App() {
   return (
@@ -64,6 +102,10 @@ function App() {
           boolean={false}
           isActivated />
           text={<h3>Elements</h3>}
+          <Title />
+
+          <Contandor />
+
       </header>
     </div>
   );

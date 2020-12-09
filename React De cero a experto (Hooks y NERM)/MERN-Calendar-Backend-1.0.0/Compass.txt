@@ -1,0 +1,4 @@
+mongodb+srv://<username>:<password>@cluster0.zm1sf.mongodb.net
+
+db user jose
+ps M0ng0db.c0m
